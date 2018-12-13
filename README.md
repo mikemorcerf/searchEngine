@@ -10,17 +10,8 @@
       title         varchar(512)
       description   varchar(512)
       keywords      varchar(512)
-      clicks        int(11)
-    
--To populate the database, in crawler.php there is a variable $startUrl on line 148.
-  Enter any start url and execute crawler.php;
-    Run "localhost/search_engine/crawl.php" in any browser
-    
-    
+      clicks        int(11)    
 Need to do:
--Track user queries
--Front-end for Admin to see which pages got indexed, how long it took*
--Front-end for Admin to manage which future pages will get indexed*
 -Front-end for Admin to view information stored in database, including a history of user' search queries and result counts
 
 -handing of multiple search terms
