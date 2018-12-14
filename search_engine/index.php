@@ -21,10 +21,21 @@
 					<input class="searchBox" type="text" name="term">
 					<input class="searchButton" type="submit" value="Search">
 				
+				</form>
+			
+			</div>
+			
+			<div class="crawlContainer">
+			
+				<form action="crawl.php" method="GET">
+				
+					<input class="searchBox" type="text" name="term" placeholder="Enter website">
+					<input class="searchButton" type="submit" value="Crawl">
 				
 				</form>
 			
 			</div>
+			
 		
 		</div>
 		
