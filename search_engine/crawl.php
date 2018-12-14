@@ -2,6 +2,13 @@
 include("config.php");
 include("classes/DomDocumentParser.php");
 
+if(isset($_GET["term"])) {
+	$crawlWS = $_GET["term"];
+}
+else {
+	exit("You must enter a search term");
+}
+
 $alreadyCrawled = array();
 $crawling = array();
 
@@ -56,7 +63,8 @@ function createLink($src, $url) {
 }
 
 function getDetails($url) {
-	
+	$time_pre = microtime(true);
+
 	$parser = new DomDocumentParser($url);
 	
 	$titleArray = $parser->getTitleTags();
@@ -91,12 +99,16 @@ function getDetails($url) {
 	$description = str_replace("\n", "", $description);
 	$keywords = str_replace("\n", "", $keywords);
 	
-	
+
+	$time_post = microtime(true);
+	$exec_time = $time_post - $time_pre;
+	$exec_time = number_format($exec_time, 6);
+
 	if(linkExists($url)) {
 		echo "$url already exists<br>";
 	}
 	else if(insertLink($url, $title, $description, $keywords)) {
-		echo "SUCCESS: $url<br>";
+		echo "SUCCESS:  $url  took $exec_time seconds<br>";
 	}
 	else {
 		echo "ERROR: Failed to insert $url<br>";
@@ -124,7 +136,6 @@ function followLinks($url) {
 			continue;
 		}
 		
-		
 		$href = createLink($href, $url);
 		
 		
@@ -145,6 +156,15 @@ function followLinks($url) {
 	
 }
 
-$startUrl = "https://en.wikipedia.org/wiki/United_States";
-followLinks($startUrl);
+//$startUrl = "https://en.wikipedia.org/wiki/United_States";
+if( substr($crawlWS, 0, 5) != "https" && substr($crawlWS, 0, 4) != "http" ){
+	echo "A proper URL is necessary<br> 
+		Examples: <br>
+		https://www.reddit.com/<br>
+		http://www.example.com/<br>
+		";
+		}
+else{
+	followLinks($crawlWS);			
+}
 ?>
