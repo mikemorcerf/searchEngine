@@ -4,6 +4,7 @@
 
 -A database must be created under the specification:
     database name: "search_engine"
+    
     table: "sites"
         id            int(11)     AUTO_INCREMENT 
         url           varchar(512)
