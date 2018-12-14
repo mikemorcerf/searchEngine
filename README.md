@@ -5,12 +5,18 @@
 -A database must be created under the specification:
     database name: "search_engine"
     table: "sites"
-      id            int(11)     AUTO_INCREMENT 
-      url           varchar(512)
-      title         varchar(512)
-      description   varchar(512)
-      keywords      varchar(512)
-      clicks        int(11)    
+        id            int(11)     AUTO_INCREMENT 
+        url           varchar(512)
+        title         varchar(512)
+        description   varchar(512)
+        keywords      varchar(512)
+        clicks        int(11)    
+      
+    table: "searches"
+        id            int(11)     AUTO_INCREMENT
+        term          varchar(512)
+        
+        
 Need to do:
 -Front-end for Admin to view information stored in database, including a history of user' search queries and result counts
 
