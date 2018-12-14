@@ -60,12 +60,34 @@ $page = isset($_GET["page"]) ? $_GET["page"] : "1";
 		<div class="mainResultsSection">
 			
 			<?php
+			
+			$time_pre = microtime(true);
+			
 			$resultsProvider = new SiteResultsProvider($con);
+			
+			function insertTerm($term) {
+				global $con;
+		
+				$query = $con->prepare("INSERT INTO searches(term)
+								VALUES(:term)");
+		
+				
+				$query->bindParam(":term", $term);
+		
+				return $query->execute();
+			}
+			
+			insertTerm($term);
 
 			$numResults = $resultsProvider->getNumResults($term);
 			$pageSize = 20;
 			
-			echo "<p class='resultsCount'>$numResults results found</p>";
+			$time_post = microtime(true);
+			$exec_time = $time_post - $time_pre;
+			$exec_time = number_format($exec_time, 6);
+			
+			
+			echo "<p class='resultsCount'>$numResults results found in $exec_time seconds</p>";
 			
 			echo $resultsProvider->getResultsHtml($page, $pageSize, $term);
 			?>
@@ -91,10 +113,10 @@ $page = isset($_GET["page"]) ? $_GET["page"] : "1";
 				}
 				
 				if($currentPage + $pagesLeft > $numPages + 1){
-					$currentPage = $numPages +1 - $pagesLeft;
+					$currentPage = $numPages + 1 - $pagesLeft;
 				}
 				
-				while($pagesLeft !=0 && currentPage <= $numPages){
+				while($pagesLeft !=0 && $currentPage <= $numPages){
 					
 					if($currentPage == $page){
 					
