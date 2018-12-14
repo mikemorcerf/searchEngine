@@ -25,11 +25,22 @@ html, body {
 }
 
 .mainSection .searchContainer {
-	margin-top: 20px;
+	margin-top: 200px;
 	width: 100%;
 }
 
-.mainSection .searchContainer form{
+.mainSection .searchContainer form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mainSection .crawlContainer {
+	margin-top: 200px;
+	width: 100%;
+}
+
+.mainSection .crawlContainer form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -67,6 +78,7 @@ html, body {
 	width: 220px;
 	text-align: center;
 }
+
 
 .logoContainer img {
 	width: 100%;
@@ -192,6 +204,12 @@ html, body {
 
 a .pageNumber {
 	color: #4285f4;
+}
+
+.crawlResults {
+	font-size: 13px;
+	color: #808080;
+	margin-left: 150px;
 }
 
 
