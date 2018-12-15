@@ -11,6 +11,8 @@ else {
 
 $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
 $page = isset($_GET["page"]) ? $_GET["page"] : "1";
+$startPage = isset($_GET["page"]) ? $_GET["page"] : "0";
+
 
 
 ?>
@@ -64,24 +66,26 @@ $page = isset($_GET["page"]) ? $_GET["page"] : "1";
 			$time_pre = microtime(true);
 			
 			$resultsProvider = new SiteResultsProvider($con);
-			
-			function insertTerm($term) {
-				global $con;
-		
-				$query = $con->prepare("INSERT INTO searches(term)
-								VALUES(:term)");
-		
-				
-				$query->bindParam(":term", $term);
-		
-				return $query->execute();
-			}
-			
-			insertTerm($term);
 
 			$numResults = $resultsProvider->getNumResults($term);
 			$pageSize = 20;
-			
+            
+            if($startPage == 0){
+                function insertTerm($term, $count) {
+                    global $con;
+
+                    $query = $con->prepare("INSERT INTO searches(term, count)
+                                    VALUES(:term, :count)");
+
+
+                    $query->bindParam(":term", $term);
+                    $query->bindParam(":count", $count);
+
+                    return $query->execute();
+                }
+
+                insertTerm($term, $numResults);
+            }
 			$time_post = microtime(true);
 			$exec_time = $time_post - $time_pre;
 			$exec_time = number_format($exec_time, 6);
