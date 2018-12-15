@@ -24,17 +24,12 @@
 				</form>
 			
 			</div>
-			
-			<div class="crawlContainer">
-			
-				<form action="crawl.php" method="GET">
-				
-					<input class="searchBox" type="text" name="term" placeholder="Enter website">
-					<input class="searchButton" type="submit" value="Crawl">
-				
-				</form>
-			
-			</div>
+            
+            <div class = "adminContainer">
+				    <label>Admin:</label>
+					<input class="searchBox" type="password" name="term" placeholder="Enter Password">
+					<input class="searchButton" type="submit" value="login">
+            </div>
 			
 		
 		</div>
@@ -43,4 +38,17 @@
 
 	
 </body>
+    
+<script>
+   var admin = document.getElementsByClassName('searchButton');
+   var pass = document.getElementsByClassName('searchBox');
+   admin[1].addEventListener("click", function(){
+       if(pass[1].value === "admin"){
+           window.location.href = "admin.php";
+       }
+       else{
+           alert("Incorrect Admin Password");
+       }
+   });
+</script>    
 </html>
