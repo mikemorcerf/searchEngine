@@ -21,22 +21,19 @@ class SiteResultsProvider {
 		return $row["total"];
 	}
 	
-	public function getResultsHtml($page, $pageSize, $term){
+	public function getResultsHtml($term){
 		
-		$fromLimit = ($page -1) * $pageSize;
+		
 		
 		$query = $this->con->prepare("SELECT *
 										FROM sites WHERE title LIKE :term
 										OR url LIKE :term
 										OR keywords LIKE :term
 										OR description LIKE :term
-										ORDER BY clicks DESC
-										LIMIT :fromLimit, :pageSize");
+										ORDER BY clicks DESC");
 										
 		$searchTerm = "%" . $term . "%";
 		$query->bindParam(":term", $searchTerm);
-		$query->bindParam(":fromLimit", $fromLimit, PDO::PARAM_INT);
-		$query->bindParam(":pageSize", $pageSize, PDO::PARAM_INT);
 		$query->execute();
 		
 		$resultsHtml = "<div class='siteResults'>";

@@ -6,6 +6,7 @@
 html, body {
 	margin: 0;
 	height: 100%;
+	background-color: #f1f1f1;
 }
 
 .wrapper {
@@ -25,7 +26,6 @@ html, body {
 }
 
 .mainSection .searchContainer {
-	margin-top: 200px;
 	width: 100%;
 }
 
@@ -33,6 +33,7 @@ html, body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 25px;
 }
 
 .mainSection .crawlContainer {
@@ -47,62 +48,31 @@ html, body {
 }
 
 .searchContainer .searchButton {
-	color: #757575;
-	background-color: #f5f5f5;
-	border: none;
 	height: 36px;
-	width: 125px;
-	border-radius: 1px;
+	width: 100px;
 	font-size: 13px;
 	font-weight: bold;
 	margin-top: 20px;
-	cursor: pointer;
-	outline: none;
 }
 
 .mainSection .searchContainer .searchBox {
-	border: none;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 	height: 40px;
-	border-radius: 2px;
-	outline: none;
 	padding: 10px;
-	box-sizing: border-box;
 	font-size: 16px;
-	width: 70%;
-	max-width: 630px;
+	width: 75%;
+	max-width: 600px;
 	color: #000;
 }
 
-.mainSection .logoContainer {
-	width: 220px;
-	text-align: center;
-}
-
-
-.logoContainer img {
-	width: 100%;
-}
-
-.wrapper .header .headerContent .logoContainer a{
-	text-decoration: none;
-	color: #545454;
-}
 
 .header {
-	background-color: #FAFAFA;
 	border-bottom: 1px solid #ebebeb;
 }
 
 .wrapper .headerContent {
 		display: flex;
 		align-items: center;
-}
-
-.headerContent .logoContainer {
-	width: 150px;
-	padding: 5px 20px;
-	box-sizing: border-box;
+		margin-left: 50px;
 }
 
 .headerContent .searchContainer {
@@ -115,11 +85,9 @@ html, body {
 
 .headerContent .searchBarContainer {
 	height: 44px;
-	border-radius: 2px;
 	background-color: #fff;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-	width: 70%;
-	max-width: 630px;
+	width: 75%;
+	max-width: 600px;
 	box-sizing: border-box;
 	display: flex;
 }
@@ -131,6 +99,7 @@ html, body {
 	padding: 12px;
 	font-size: 16px;
 	color: #000;
+	
 }
 
 .mainResultsSection {
@@ -140,11 +109,11 @@ html, body {
 .mainResultsSection .resultsCount {
 	font-size: 13px;
 	color: #808080;
-	margin-left: 150px;
+	margin-left: 50px;
 }
 
 .mainResultsSection .siteResults {
-	margin-left: 150px;
+	margin-left: 50px;
 }
 
 .resultContainer {
@@ -158,52 +127,25 @@ html, body {
 }
 
 .resultContainer .title a {
-	color: #1a0dab;
+	color: blue;
 	text-decoration: none;
 	font-weight: normal;
 	font-size: 18px;
 }
 
 .resultContainer .title a:hover {
+	color: red;
 	text-decoration: underline;
 }
 
 .resultContainer .url {
-	color: #006621;
-	font-size: 14px;
+	color: green;
+	font-size: 16px;
+	margin: 8px 0;
 }
 
 .resultContainer .description {
-	font-size: 12px;
-}
-
-.paginationContainer {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 25px;
-}
-
-.pageButtons {
-	display: flex;
-}
-
-.pageNumberContainer, .pageNumberContainer a {
-	height: 37px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-decoration: none;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-
-.pageNumber {
-	color: #000;
-	font-size: 16px;
-}
-
-a .pageNumber {
-	color: #4285f4;
+	font-size: 14px;
 }
 
 .crawlResults {

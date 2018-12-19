@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Search Engine</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
@@ -10,15 +11,11 @@
 	
 		<div class="mainSection">
 			
-			<div class="logoContainer">
-				<img src="assets/images/searchLogo.png">
-			</div>
-			
 			<div class="searchContainer">
 			
 				<form action="search.php" method="GET">
 				
-					<input class="searchBox" type="text" name="term">
+					<input class="searchBox" type="text" name="term" placeholder="What can I google for you?">
 					<input class="searchButton" type="submit" value="Search">
 				
 				</form>
